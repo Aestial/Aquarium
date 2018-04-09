@@ -123728,7 +123728,7 @@ function CanvasRenderer() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-const clownRoute = './meshes/clown/clown.fbx';
+const clownRoute = './meshes/clown/clown_fish.fbx';
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   clown: clownRoute,
