@@ -23,12 +23,13 @@ export default class ThreeController {
     this.renderer = new THREE.WebGLRenderer( { antialias: true } );
   }
   load() {
-    this.loader.load('../src/clown/clown.fbx', this.loadCallback.bind(this));
+    this.loader.load('../src/meshes/clown/clown.fbx', this.loadCallback.bind(this));
   }
   loadCallback(object) {
     this.fish = object;
     this.fish.scale.set(0.4,0.4,0.4);
-    this.fish.rotation.y = 2*Math.PI/3;
+    // this.fish.scale.set(0.1,0.1,0.1);
+    this.fish.rotation.y = -2*Math.PI/3;
     this.fish.mixer = new THREE.AnimationMixer(this.fish);
     console.log(this.fish.mixer);
     console.log(this.fish.animations);
@@ -45,9 +46,10 @@ export default class ThreeController {
     this.frontLight.position.z = 100;
     this.renderer.setClearColor(0x1AA1BF);
     this.renderer.setSize( window.innerWidth, window.innerHeight );
+    this.renderer.domElement.className = 'three_container';
   }
   attach() {
-    this.scene.add( this.mesh );
+    // this.scene.add( this.mesh );
     this.scene.add(this.ambient);
     this.scene.add( this.topLight );
     this.scene.add( this.frontLight );
