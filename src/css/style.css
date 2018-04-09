@@ -3,7 +3,7 @@ html, body {
   height: 100%;
   overflow: hidden
 }
-.three_container {
+.three_canvas {
   display: none;
 }
 #credits {
