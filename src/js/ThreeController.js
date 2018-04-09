@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import FBXLoader from 'three-fbx-loader';
+import routes from './routes';
 
 export default class ThreeController {
   constructor(container) {
@@ -23,7 +24,7 @@ export default class ThreeController {
     this.renderer = new THREE.WebGLRenderer( { antialias: true } );
   }
   load() {
-    this.loader.load('../src/meshes/clown/clown.fbx', this.loadCallback.bind(this));
+    this.loader.load(routes.clown, this.loadCallback.bind(this));
   }
   loadCallback(object) {
     this.fish = object;
