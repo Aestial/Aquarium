@@ -12203,14 +12203,14 @@ function findTextStyle(item, queue) {
 "use strict";
 /* unused harmony export WebGLRenderTargetCube */
 /* unused harmony export WebGLRenderTarget */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return WebGLRenderer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return WebGLRenderer; });
 /* unused harmony export ShaderLib */
 /* unused harmony export UniformsLib */
 /* unused harmony export UniformsUtils */
 /* unused harmony export ShaderChunk */
 /* unused harmony export FogExp2 */
 /* unused harmony export Fog */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return Scene; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return Scene; });
 /* unused harmony export Sprite */
 /* unused harmony export LOD */
 /* unused harmony export SkinnedMesh */
@@ -12258,7 +12258,7 @@ function findTextStyle(item, queue) {
 /* unused harmony export LightShadow */
 /* unused harmony export Light */
 /* unused harmony export StereoCamera */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return PerspectiveCamera; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return PerspectiveCamera; });
 /* unused harmony export OrthographicCamera */
 /* unused harmony export CubeCamera */
 /* unused harmony export ArrayCamera */
@@ -12290,7 +12290,7 @@ function findTextStyle(item, queue) {
 /* unused harmony export InterleavedBuffer */
 /* unused harmony export InstancedBufferAttribute */
 /* unused harmony export Face3 */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return Object3D; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return Object3D; });
 /* unused harmony export Raycaster */
 /* unused harmony export Layers */
 /* unused harmony export EventDispatcher */
@@ -12315,8 +12315,8 @@ function findTextStyle(item, queue) {
 /* unused harmony export Line3 */
 /* unused harmony export Euler */
 /* unused harmony export Vector4 */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return Vector3; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return Vector2; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return Vector3; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return Vector2; });
 /* unused harmony export Quaternion */
 /* unused harmony export Color */
 /* unused harmony export ImmediateRenderObject */
@@ -12436,7 +12436,7 @@ function findTextStyle(item, queue) {
 /* unused harmony export PCFSoftShadowMap */
 /* unused harmony export FrontSide */
 /* unused harmony export BackSide */
-/* unused harmony export DoubleSide */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return DoubleSide; });
 /* unused harmony export FlatShading */
 /* unused harmony export SmoothShading */
 /* unused harmony export NoColors */
@@ -71405,15 +71405,15 @@ class ThreeController {
     this.attach();
   }
   init() {
-    this.mouse = new __WEBPACK_IMPORTED_MODULE_0_three__["h" /* Vector2 */]();
-    this.mouse3D = new __WEBPACK_IMPORTED_MODULE_0_three__["i" /* Vector3 */]();
-    this.camera = new __WEBPACK_IMPORTED_MODULE_0_three__["f" /* PerspectiveCamera */](70, window.innerWidth / window.innerHeight, 0.01, 10);
-    this.scene = new __WEBPACK_IMPORTED_MODULE_0_three__["g" /* Scene */]();
+    this.mouse = new __WEBPACK_IMPORTED_MODULE_0_three__["i" /* Vector2 */]();
+    this.mouse3D = new __WEBPACK_IMPORTED_MODULE_0_three__["j" /* Vector3 */]();
+    this.camera = new __WEBPACK_IMPORTED_MODULE_0_three__["g" /* PerspectiveCamera */](70, window.innerWidth / window.innerHeight, 0.01, 10);
+    this.scene = new __WEBPACK_IMPORTED_MODULE_0_three__["h" /* Scene */]();
     this.ambient = new __WEBPACK_IMPORTED_MODULE_0_three__["a" /* AmbientLight */](0xD5A3C4);
     this.topLight = new __WEBPACK_IMPORTED_MODULE_0_three__["d" /* DirectionalLight */](0xD1F1FD, 2);
     this.frontLight = new __WEBPACK_IMPORTED_MODULE_0_three__["d" /* DirectionalLight */](0x328FFC, 1.5);
-    this.fish = new __WEBPACK_IMPORTED_MODULE_3__Fish__["a" /* default */](this.scene, new __WEBPACK_IMPORTED_MODULE_0_three__["i" /* Vector3 */]());
-    this.renderer = new __WEBPACK_IMPORTED_MODULE_0_three__["j" /* WebGLRenderer */]( { antialias: true } );
+    this.fish = new __WEBPACK_IMPORTED_MODULE_3__Fish__["a" /* default */](this.scene, new __WEBPACK_IMPORTED_MODULE_0_three__["j" /* Vector3 */]());
+    this.renderer = new __WEBPACK_IMPORTED_MODULE_0_three__["k" /* WebGLRenderer */]( { antialias: true } );
     setTimeout(() => {
       this.animate();
     }, 4000);
@@ -123757,24 +123757,28 @@ class Fish {
     this.load();
   }
   init() {
-    this.object = new __WEBPACK_IMPORTED_MODULE_0_three__["e" /* Object3D */]();
+    this.object = new __WEBPACK_IMPORTED_MODULE_0_three__["f" /* Object3D */]();
     this.loader = new __WEBPACK_IMPORTED_MODULE_1_three_fbx_loader___default.a();
     this.clock = new __WEBPACK_IMPORTED_MODULE_0_three__["c" /* Clock */]();
-    this.velocity = new __WEBPACK_IMPORTED_MODULE_0_three__["i" /* Vector3 */]();
-    this.desiredVelocity = new __WEBPACK_IMPORTED_MODULE_0_three__["i" /* Vector3 */]();
-    this.steering = new __WEBPACK_IMPORTED_MODULE_0_three__["i" /* Vector3 */]();
-    this.target = new __WEBPACK_IMPORTED_MODULE_0_three__["i" /* Vector3 */]();
+    this.velocity = new __WEBPACK_IMPORTED_MODULE_0_three__["j" /* Vector3 */]();
+    this.desiredVelocity = new __WEBPACK_IMPORTED_MODULE_0_three__["j" /* Vector3 */]();
+    this.steering = new __WEBPACK_IMPORTED_MODULE_0_three__["j" /* Vector3 */]();
+    this.target = new __WEBPACK_IMPORTED_MODULE_0_three__["j" /* Vector3 */]();
   }
   load() {
     this.loader.load(__WEBPACK_IMPORTED_MODULE_2__routes__["a" /* default */].clown, this.config.bind(this));
   }
   config(mesh) {
-    this.mass = 0.9;
-    this.maxForce = 0.3;
-    this.maxSpeed = 0.09;
-    this.maxVelocity = 0.1;
-    this.slowingRadius = 0.6;
+    this.mass = 1.25;
+    this.maxForce = 0.2;
+    this.maxSpeed = 0.06;
+    this.maxVelocity = 0.07;
+    this.slowingRadius = 0.4;
     this.mesh = mesh;
+    console.log(this.mesh);
+    for (let i = 0; i < this.mesh.children.length - 1; i += 1) {
+      this.mesh.children[i].material.side = __WEBPACK_IMPORTED_MODULE_0_three__["e" /* DoubleSide */];
+    }
     this.mesh.scale.set(0.4,0.4,0.4);
     this.mesh.rotation.y = Math.PI;
     this.mesh.position.z = -1;

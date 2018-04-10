@@ -22,12 +22,16 @@ export default class Fish {
     this.loader.load(routes.clown, this.config.bind(this));
   }
   config(mesh) {
-    this.mass = 0.9;
-    this.maxForce = 0.3;
-    this.maxSpeed = 0.09;
-    this.maxVelocity = 0.1;
-    this.slowingRadius = 0.6;
+    this.mass = 1.25;
+    this.maxForce = 0.2;
+    this.maxSpeed = 0.06;
+    this.maxVelocity = 0.07;
+    this.slowingRadius = 0.4;
     this.mesh = mesh;
+    console.log(this.mesh);
+    for (let i = 0; i < this.mesh.children.length - 1; i += 1) {
+      this.mesh.children[i].material.side = THREE.DoubleSide;
+    }
     this.mesh.scale.set(0.4,0.4,0.4);
     this.mesh.rotation.y = Math.PI;
     this.mesh.position.z = -1;
