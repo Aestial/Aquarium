@@ -28,13 +28,12 @@ export default class Fish {
     this.maxVelocity = 0.11;
     this.slowingRadius = 0.25;
     this.mesh = mesh;
-    console.log(this.mesh);
     for (let i = 0; i < this.mesh.children.length - 1; i += 1) {
       this.mesh.children[i].material.side = THREE.DoubleSide;
     }
     this.mesh.scale.set(0.4,0.4,0.4);
     this.mesh.rotation.y = Math.PI;
-    this.mesh.position.z = -1;
+    this.mesh.position.z = -1.125;
     this.mesh.mixer = new THREE.AnimationMixer(this.mesh);
     // console.log(this.mesh.animations);
     this.mesh.action = this.mesh.mixer.clipAction(this.mesh.animations[0]);

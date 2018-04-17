@@ -123775,13 +123775,12 @@ class Fish {
     this.maxVelocity = 0.11;
     this.slowingRadius = 0.25;
     this.mesh = mesh;
-    console.log(this.mesh);
     for (let i = 0; i < this.mesh.children.length - 1; i += 1) {
       this.mesh.children[i].material.side = __WEBPACK_IMPORTED_MODULE_0_three__["e" /* DoubleSide */];
     }
     this.mesh.scale.set(0.4,0.4,0.4);
     this.mesh.rotation.y = Math.PI;
-    this.mesh.position.z = -1;
+    this.mesh.position.z = -1.125;
     this.mesh.mixer = new __WEBPACK_IMPORTED_MODULE_0_three__["b" /* AnimationMixer */](this.mesh);
     // console.log(this.mesh.animations);
     this.mesh.action = this.mesh.mixer.clipAction(this.mesh.animations[0]);
@@ -123861,7 +123860,7 @@ class PixiController {
     // Get sprite
     this.sprite = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Sprite"](this.texture);
     // Filter
-    this.filter = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["filters"].BlurFilter(0.5, 1, 5, 5);
+    this.filter = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["filters"].BlurFilter(0.75, 1, 1, 5);
     this.attach();
     this.config();
     this.animate();
@@ -123874,7 +123873,7 @@ class PixiController {
     this.container.appendChild(this.app.view);
   }
   config() {
-    // this.sprite.filters = [this.filter];
+    this.sprite.filters = [this.filter];
     this.app.view.className = 'pixi_canvas';
     window.addEventListener('resize', this.onWindowResize.bind(this), false );
   }

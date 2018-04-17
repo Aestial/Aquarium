@@ -16,7 +16,7 @@ export default class PixiController {
     // Get sprite
     this.sprite = new PIXI.Sprite(this.texture);
     // Filter
-    this.filter = new PIXI.filters.BlurFilter(0.5, 1, 5, 5);
+    this.filter = new PIXI.filters.BlurFilter(0.75, 1, 1, 5);
     this.attach();
     this.config();
     this.animate();
@@ -29,7 +29,7 @@ export default class PixiController {
     this.container.appendChild(this.app.view);
   }
   config() {
-    // this.sprite.filters = [this.filter];
+    this.sprite.filters = [this.filter];
     this.app.view.className = 'pixi_canvas';
     window.addEventListener('resize', this.onWindowResize.bind(this), false );
   }
