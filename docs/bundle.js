@@ -71407,7 +71407,7 @@ class ThreeController {
   init() {
     this.mouse = new __WEBPACK_IMPORTED_MODULE_0_three__["i" /* Vector2 */]();
     this.mouse3D = new __WEBPACK_IMPORTED_MODULE_0_three__["j" /* Vector3 */]();
-    this.camera = new __WEBPACK_IMPORTED_MODULE_0_three__["g" /* PerspectiveCamera */](70, window.innerWidth / window.innerHeight, 0.01, 10);
+    this.camera = new __WEBPACK_IMPORTED_MODULE_0_three__["g" /* PerspectiveCamera */](65, window.innerWidth / window.innerHeight, 0.01, 10);
     this.scene = new __WEBPACK_IMPORTED_MODULE_0_three__["h" /* Scene */]();
     this.ambient = new __WEBPACK_IMPORTED_MODULE_0_three__["a" /* AmbientLight */](0xD5A3C4);
     this.topLight = new __WEBPACK_IMPORTED_MODULE_0_three__["d" /* DirectionalLight */](0xD1F1FD, 2);
@@ -71445,10 +71445,10 @@ class ThreeController {
   onDocumentMouseMove(event) {
     this.mouse.x = event.clientX - this.windowHalfX;
 		this.mouse.y = event.clientY - this.windowHalfY;
-    // console.log('THREE. Mouse position: ', this.mouse.x, this.mouse.ys);
-    this.mouse3D.set(this.mouse.x, -this.mouse.y, -1);
+    // console.log('THREE. Mouse position: ', this.mouse.x, this.mouse.y);
+    this.mouse3D.set(this.mouse.x, -this.mouse.y, -0.4);
     this.mouse3D.unproject(this.camera);
-    this.fish.setTarget(this.mouse3D);
+    this.fish.setTarget(this.mouse3D, this.camera.aspect, -6.5);
 	}
   onWindowResize() {
     console.log('THREE. Resize to: ', window.innerWidth, window.innerHeight);
@@ -123769,11 +123769,11 @@ class Fish {
     this.loader.load(__WEBPACK_IMPORTED_MODULE_2__routes__["a" /* default */].clown, this.config.bind(this));
   }
   config(mesh) {
-    this.mass = 1.25;
-    this.maxForce = 0.2;
-    this.maxSpeed = 0.06;
-    this.maxVelocity = 0.07;
-    this.slowingRadius = 0.4;
+    this.mass = 1.2;
+    this.maxForce = 0.3;
+    this.maxSpeed = 0.1;
+    this.maxVelocity = 0.11;
+    this.slowingRadius = 0.25;
     this.mesh = mesh;
     console.log(this.mesh);
     for (let i = 0; i < this.mesh.children.length - 1; i += 1) {
@@ -123821,8 +123821,9 @@ class Fish {
     this.object.position.add(this.velocity);
     this.object.lookAt(this.target);
   }
-  setTarget(position) {
-    this.target.set(position.x, position.y, 0);
+  setTarget(position, aspect, distance) {
+    let ratio = 1 / aspect;
+    this.target.set(position.x * ratio, position.y, position.z + distance);
   }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Fish;

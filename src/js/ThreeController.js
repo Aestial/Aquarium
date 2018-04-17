@@ -13,7 +13,7 @@ export default class ThreeController {
   init() {
     this.mouse = new THREE.Vector2();
     this.mouse3D = new THREE.Vector3();
-    this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 10);
+    this.camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.01, 10);
     this.scene = new THREE.Scene();
     this.ambient = new THREE.AmbientLight(0xD5A3C4);
     this.topLight = new THREE.DirectionalLight(0xD1F1FD, 2);
@@ -51,10 +51,10 @@ export default class ThreeController {
   onDocumentMouseMove(event) {
     this.mouse.x = event.clientX - this.windowHalfX;
 		this.mouse.y = event.clientY - this.windowHalfY;
-    // console.log('THREE. Mouse position: ', this.mouse.x, this.mouse.ys);
-    this.mouse3D.set(this.mouse.x, -this.mouse.y, -1);
+    // console.log('THREE. Mouse position: ', this.mouse.x, this.mouse.y);
+    this.mouse3D.set(this.mouse.x, -this.mouse.y, -0.4);
     this.mouse3D.unproject(this.camera);
-    this.fish.setTarget(this.mouse3D);
+    this.fish.setTarget(this.mouse3D, this.camera.aspect, -6.5);
 	}
   onWindowResize() {
     console.log('THREE. Resize to: ', window.innerWidth, window.innerHeight);

@@ -22,11 +22,11 @@ export default class Fish {
     this.loader.load(routes.clown, this.config.bind(this));
   }
   config(mesh) {
-    this.mass = 1.25;
-    this.maxForce = 0.2;
-    this.maxSpeed = 0.06;
-    this.maxVelocity = 0.07;
-    this.slowingRadius = 0.4;
+    this.mass = 1.2;
+    this.maxForce = 0.3;
+    this.maxSpeed = 0.1;
+    this.maxVelocity = 0.11;
+    this.slowingRadius = 0.25;
     this.mesh = mesh;
     console.log(this.mesh);
     for (let i = 0; i < this.mesh.children.length - 1; i += 1) {
@@ -74,8 +74,9 @@ export default class Fish {
     this.object.position.add(this.velocity);
     this.object.lookAt(this.target);
   }
-  setTarget(position) {
-    this.target.set(position.x, position.y, 0);
+  setTarget(position, aspect, distance) {
+    let ratio = 1 / aspect;
+    this.target.set(position.x * ratio, position.y, position.z + distance);
   }
 }
 
